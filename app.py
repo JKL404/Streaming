@@ -8,8 +8,16 @@ app = Flask(__name__)
 # for local webcam use cv2.VideoCapture(0)
 
 
+def frame_generation():
+    try:
+        camera = cv2.VideoCapture(0)
+        return camera
+    except Exception:
+        print("Unable to open camera")
+
+
 def gen_frames():  # generate frame by frame from camera
-    camera = cv2.VideoCapture(0)
+    camera = frame_generation()
     while True:
         # Capture frame-by-frame
         success, frame = camera.read()  # read the camera frame
