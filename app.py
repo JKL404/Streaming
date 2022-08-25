@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 def frame_generation():
     try:
-        camera = cv2.VideoCapture(1)
+        camera = cv2.VideoCapture(0)
         return camera
     except Exception:
         print("Unable to open camera")
